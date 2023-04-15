@@ -3,8 +3,8 @@ import numpy as np
 import pickle
 import xgboost
 import pandas as pd
-import shap
-from streamlit_shap import st_shap
+#import shap
+#from streamlit_shap import st_shap
 
 def ML_prediction():
     st.header('Machine Learning Prediction')
@@ -25,10 +25,11 @@ def ML_prediction():
     prediction = model.predict(df)
 
     # Creating the explainer and calculating shap_values object for the patients dataset
-    explainer = shap.TreeExplainer(model)
-    shap_values = explainer(df)
+    #explainer = shap.TreeExplainer(model)
+    #shap_values = explainer(df)
 
     # After user choses the patient, we display the predicted ICU of this patient
+    '''
     patient = st.slider('Select a patient', 0, st.session_state.data.shape[0]-1)
     if st.button('Predict ICU'): 
         if prediction[patient] == 0:
@@ -46,3 +47,4 @@ def ML_prediction():
         
         st.subheader('Decision plot')
         st_shap(shap.decision_plot(explainer.expected_value, shap_values.values[patient], features=df.iloc[patient]))
+    '''

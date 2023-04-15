@@ -3,8 +3,8 @@ import numpy as np
 import pickle
 import xgboost
 import pandas as pd
-import shap
-from streamlit_shap import st_shap
+#import shap
+#from streamlit_shap import st_shap
 
 def global_interpretation():
     st.header('Global Interpretation')
@@ -22,10 +22,11 @@ def global_interpretation():
         pass
     
     # Creating the explainer and calculating shap_values object for the patients dataset
-    explainer = shap.TreeExplainer(model)
-    shap_values = explainer(df)
+    #explainer = shap.TreeExplainer(model)
+    #shap_values = explainer(df)
 
     # Global interpretation of the prediction using SHAP
+    '''
     shap.initjs()
     
     st.subheader('Summary plot')
@@ -40,3 +41,4 @@ def global_interpretation():
     column_name = st.selectbox('', listcol)
     if column_name != 'Choose a feature':
         st_shap(shap.plots.scatter(shap_values[:, column_name]))
+    '''
