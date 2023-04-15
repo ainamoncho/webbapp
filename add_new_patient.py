@@ -3,7 +3,7 @@ import streamlit as st
 MAX_ROWS = 10000
 
 def add_new_patient():
-    st.header('Add New Patient')
+    st.header('Add New Tweet')
 
     ncolumns = st.session_state.data.shape[1]
     list = []*ncolumns
@@ -14,13 +14,13 @@ def add_new_patient():
         for i in range(ncolumns):
             list.append(st.number_input(st.session_state.data.columns[i]))
     
-        if st.form_submit_button('Add Patient'):
+        if st.form_submit_button('Add Tweet'):
             
             if st.session_state.data.shape[0] == MAX_ROWS:
-                st.error('Add patient limit reached. Cannot add any more patients')
+                st.error('Add tweet limit reached. Cannot add any more tweets')
             else:
                 row = st.session_state.data.shape[0]
                 st.session_state.data.loc[row] = list
-                st.info(f'Patient: {row} added')
+                st.info(f'Tweet: {row} added')
 
     st.dataframe(st.session_state.data)
