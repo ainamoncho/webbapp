@@ -15,7 +15,7 @@ st.set_page_config(
 st.title('🏥 HOSPITAL')
 
 with st.sidebar:
-    page = option_menu('Main Menu', ['Home', 'Add New Patient', 'Machine Learning Prediction', 'Global Interpretation'], 
+    page = option_menu('Main Menu', ['Home', 'Add New Text', 'Machine Learning Prediction', 'Global Interpretation'], 
         icons=['house', 'bag-plus', 'arrow-bar-up', 'bar-chart-line'], menu_icon="cast", default_index=1,
         styles={
         "container": {"padding": "0!important", "background-color": "#fafafa"},
@@ -24,7 +24,8 @@ with st.sidebar:
         "nav-link-selected": {"background-color": "grey"},
     })
 
-data = pd.read_csv('stage_1_balanced.csv', sep=';')
+#data = pd.read_csv('stage_1_balanced.csv', sep=';')
+data = pd.read_csv('test.tsv', sep='\t')
 
 if 'data' not in st.session_state:
     st.session_state.data=data
