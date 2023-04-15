@@ -5,6 +5,7 @@ MAX_ROWS = 10000
 def add_new_patient():
     st.header('Add New Tweet')
 
+    '''
     ncolumns = st.session_state.data.shape[1]
     list = []*ncolumns
 
@@ -24,3 +25,4 @@ def add_new_patient():
                 st.info(f'Tweet: {row} added')
 
     st.dataframe(st.session_state.data)
+    '''
