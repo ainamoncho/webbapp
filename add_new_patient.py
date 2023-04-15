@@ -5,7 +5,6 @@ MAX_ROWS = 10000
 def add_new_patient():
     st.header('Add New Tweet')
 
-    '''
     ncolumns = st.session_state.data.shape[1]
     list = []*ncolumns
 
@@ -13,7 +12,7 @@ def add_new_patient():
         cols = st.columns(ncolumns)
         
         for i in range(ncolumns):
-            list.append(st.number_input(st.session_state.data.columns[i]))
+            list.append(st.text_input(st.session_state.data.columns[i]))
     
         if st.form_submit_button('Add Tweet'):
             
@@ -25,4 +24,3 @@ def add_new_patient():
                 st.info(f'Tweet: {row} added')
 
     st.dataframe(st.session_state.data)
-    '''
